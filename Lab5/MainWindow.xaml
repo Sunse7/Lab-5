@@ -5,18 +5,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Lab5"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="830">
     <Grid>
-        <TextBox x:Name="nameInputBox" HorizontalAlignment="Left" Height="32" Margin="57,46,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" Text="text"/>
-        <TextBox x:Name="emailInputBox" HorizontalAlignment="Left" Height="51" Margin="57,120,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="138" RenderTransformOrigin="0.472,0.5"/>
-        <Button x:Name="addNewUserButton" Content="Button" HorizontalAlignment="Left" Margin="596,10,0,0" VerticalAlignment="Top" Width="120" Height="60"/>
-        <Button x:Name="changeUserButton" Content="Button" HorizontalAlignment="Left" Margin="605,84,0,0" VerticalAlignment="Top" Width="111" Height="62"/>
-        <Button x:Name="removeUserButton" Content="Button" HorizontalAlignment="Left" Margin="641,167,0,0" VerticalAlignment="Top" Width="75" Height="75"/>
-        <Button x:Name="makeAdminButton" Content="Button" HorizontalAlignment="Left" Margin="622,262,0,0" VerticalAlignment="Top" Width="94" Height="31"/>
-        <Button x:Name="removeAdminButton" Content="Button" HorizontalAlignment="Left" Margin="611,318,0,0" VerticalAlignment="Top" Width="105" Height="45"/>
-        <Label x:Name="UserInfoLabel" Content="Label" HorizontalAlignment="Left" Margin="327,28,0,0" VerticalAlignment="Top" Width="162"/>
-        <ListBox x:Name="userListBox" HorizontalAlignment="Left" Height="70" Margin="286,120,0,0" VerticalAlignment="Top" Width="100"/>
-        <ListBox x:Name="adminListBox" HorizontalAlignment="Left" Height="100" Margin="286,234,0,0" VerticalAlignment="Top" Width="100"/>
+        <TextBox x:Name="nameInputBox" HorizontalAlignment="Left" Height="25" Margin="50,50,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="300" FontSize="14"/>
+        <TextBox x:Name="emailInputBox" HorizontalAlignment="Left" Height="25" Margin="50,100,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="300" FontSize="14"/>
+        <Button x:Name="addOrChangeUserButton" Content="Add or change a user" HorizontalAlignment="Left" Margin="130,127,0,0" VerticalAlignment="Top" Width="130" Height="25"/>
+        <Button x:Name="removeUserButton" Content="Remove selected user" HorizontalAlignment="Left" Margin="135,385,0,0" VerticalAlignment="Top" Width="120" Height="25" IsEnabled="False"/>
+        <Button x:Name="makeAdminButton" Content="Make Admin &gt;&gt;" HorizontalAlignment="Left" Margin="360,250,0,0" VerticalAlignment="Top" Width="110" Height="25" IsEnabled="False"/>
+        <Button x:Name="removeAdminButton" Content="&lt;&lt; Remove Admin" HorizontalAlignment="Left" Margin="360,300,0,0" VerticalAlignment="Top" Width="110" Height="25" IsEnabled="False"/>
+        <Label x:Name="UserInfoLabel" Content="Label" HorizontalAlignment="Left" Margin="480,50,0,0" VerticalAlignment="Top" Width="300" Height="75"/>
+        <ListBox x:Name="userListBox" HorizontalAlignment="Left" Height="180" Margin="50,200,0,0" VerticalAlignment="Top" Width="300"/>
+        <ListBox x:Name="adminListBox" HorizontalAlignment="Left" Height="180" Margin="480,200,0,0" VerticalAlignment="Top" Width="300"/>
+        <Label x:Name="nameInputLabel" Content="Enter user name:" HorizontalAlignment="Left" Margin="65,25,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Label x:Name="emailInputLabel" Content="Enter user email:" HorizontalAlignment="Left" Margin="65,75,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
 
     </Grid>
 </Window>

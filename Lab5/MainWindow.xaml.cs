@@ -29,8 +29,8 @@ namespace Lab5
         public MainWindow()
         {
             InitializeComponent();
-            users = new ObservableCollection<User>() { new User("Charlotte", "NiceMail")};
-            admin = new ObservableCollection<User>() { new User("LuckyAdmin", "VovMail") };
+            users = new ObservableCollection<User>();
+            admin = new ObservableCollection<User>();
             userListBox.ItemsSource = users;
             adminListBox.ItemsSource = admin;
             userListBox.DisplayMemberPath = "Name";

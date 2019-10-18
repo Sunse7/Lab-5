@@ -25,7 +25,7 @@ namespace Lab5
         private ObservableCollection<User> admin { get; set; }
         private User SelectedUser { get; set; }
         private User SelectedAdmin { get; set; }
-
+        private bool updateUser = false;
         public MainWindow()
         {
             InitializeComponent();
@@ -54,17 +54,31 @@ namespace Lab5
                 addUserButton.IsEnabled = true;
             }
         }
-
         private void OnAddUserButtonClick(object sender, RoutedEventArgs e)
         {
-            users.Add(new User (nameInputTextBox.Text, emailInputTextBox.Text));
-            nameInputTextBox.Text = "";
-            emailInputTextBox.Text = "";
+            SelectedUser = (User)userListBox.SelectedItem;
+           
+            if(updateUser)
+            {
+                changeUserButton.IsEnabled = false;
+                SelectedUser.Name = nameInputTextBox.Text;
+                SelectedUser.Email = emailInputTextBox.Text;
+                userListBox.UnselectAll();
+                nameInputTextBox.Text = "";
+                emailInputTextBox.Text = "";
+            }
+            else
+            {
+                users.Add(new User(nameInputTextBox.Text, emailInputTextBox.Text));
+                nameInputTextBox.Text = "";
+                emailInputTextBox.Text = "";
+            }
         }
 
         private void OnUserListBoxSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             SelectedUser = (User)userListBox.SelectedItem;
+            adminListBox.UnselectAll();
             
             if (SelectedUser == null)
             {
@@ -118,6 +132,7 @@ namespace Lab5
         private void OnAdminLitsBoxSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             SelectedAdmin = (User)adminListBox.SelectedItem;
+            userListBox.UnselectAll();
             if(SelectedAdmin == null)
             {
                 UserNameInfoLabel.Content = "";
@@ -136,7 +151,10 @@ namespace Lab5
         {
             nameInputTextBox.Text = SelectedUser.Name;
             emailInputTextBox.Text = SelectedUser.Email;
-            
+            updateUser = true;
+            addUserButton.Content = "Save";
+            makeAdminButton.IsEnabled = false;
+            removeUserButton.IsEnabled = false;     
         }
     }
 }

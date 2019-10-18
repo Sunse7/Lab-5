@@ -11,8 +11,8 @@
         <TextBox x:Name="emailInputTextBox" HorizontalAlignment="Left" Height="25" Margin="50,100,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="300" FontSize="14" TextChanged="OnEmailInput"/>
         <Button x:Name="addUserButton" Content="Add user" HorizontalAlignment="Left" Margin="130,127,0,0" VerticalAlignment="Top" Width="130" Height="25" Click="OnAddUserButtonClick"/>
         <Button x:Name="removeUserButton" Content="Remove selected user" HorizontalAlignment="Left" Margin="230,385,0,0" VerticalAlignment="Top" Width="120" Height="25" Click="OnRemoveSelectedUserClick"/>
-        <Button x:Name="makeAdminButton" Content="Make Admin &gt;&gt;" HorizontalAlignment="Left" Margin="360,250,0,0" VerticalAlignment="Top" Width="110" Height="25" Click="OnMakeAdminButtonClick"/>
-        <Button x:Name="removeAdminButton" Content="&lt;&lt; Remove Admin" HorizontalAlignment="Left" Margin="360,300,0,0" VerticalAlignment="Top" Width="110" Height="25" Click="OnRemoveAdminButtonClick"/>
+        <Button x:Name="makeAdminButton" Content="Make admin &gt;&gt;" HorizontalAlignment="Left" Margin="360,250,0,0" VerticalAlignment="Top" Width="110" Height="25" Click="OnMakeAdminButtonClick"/>
+        <Button x:Name="removeAdminButton" Content="&lt;&lt; Remove admin" HorizontalAlignment="Left" Margin="360,300,0,0" VerticalAlignment="Top" Width="110" Height="25" Click="OnRemoveAdminButtonClick"/>
         <Label x:Name="UserNameInfoLabel" Content="User name:" HorizontalAlignment="Left" Margin="480,50,0,0" VerticalAlignment="Top" Width="147" Height="75"/>
         <ListBox x:Name="userListBox" HorizontalAlignment="Left" Height="180" Margin="50,200,0,0" VerticalAlignment="Top" Width="300" SelectionChanged="OnUserListBoxSelectionChanged"/>
         <ListBox x:Name="adminListBox" HorizontalAlignment="Left" Height="180" Margin="480,200,0,0" VerticalAlignment="Top" Width="300" SelectionChanged="OnAdminLitsBoxSelectionChanged"/>

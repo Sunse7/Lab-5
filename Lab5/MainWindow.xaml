@@ -14,8 +14,8 @@
         <Button x:Name="makeAdminButton" Content="Make admin &gt;&gt;" HorizontalAlignment="Left" Margin="360,250,0,0" VerticalAlignment="Top" Width="110" Height="25" Click="OnMakeAdminButtonClick"/>
         <Button x:Name="removeAdminButton" Content="&lt;&lt; Remove admin" HorizontalAlignment="Left" Margin="360,300,0,0" VerticalAlignment="Top" Width="110" Height="25" Click="OnRemoveAdminButtonClick"/>
         <Label x:Name="UserNameInfoLabel" Content="User name:" HorizontalAlignment="Left" Margin="480,50,0,0" VerticalAlignment="Top" Width="147" Height="75"/>
-        <ListBox x:Name="userListBox" HorizontalAlignment="Left" Height="180" Margin="50,200,0,0" VerticalAlignment="Top" Width="300" SelectionChanged="OnUserListBoxSelectionChanged"/>
-        <ListBox x:Name="adminListBox" HorizontalAlignment="Left" Height="180" Margin="480,200,0,0" VerticalAlignment="Top" Width="300" SelectionChanged="OnAdminLitsBoxSelectionChanged"/>
+        <ListBox x:Name="userListBox" HorizontalAlignment="Left" Height="180" Margin="50,200,0,0" VerticalAlignment="Top" Width="300" SelectionChanged="OnUserListBoxSelectionChanged" GotFocus="UserListGotFocus"/>
+        <ListBox x:Name="adminListBox" HorizontalAlignment="Left" Height="180" Margin="480,200,0,0" VerticalAlignment="Top" Width="300" SelectionChanged="OnAdminLitsBoxSelectionChanged" GotFocus="AdminListGotFocus"/>
         <Label x:Name="nameInputLabel" Content="Enter user name:" HorizontalAlignment="Left" Margin="65,25,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
         <Label x:Name="emailInputLabel" Content="Enter user email:" HorizontalAlignment="Left" Margin="65,75,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
         <Label Name="UserEmailInfoLabel" Content="User email:" HorizontalAlignment="Left" Margin="627,50,0,0" VerticalAlignment="Top" Height="75" Width="151"/>

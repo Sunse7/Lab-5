@@ -40,11 +40,14 @@ namespace Lab5
             makeAdminButton.IsEnabled = false;
             removeAdminButton.IsEnabled = false;
             changeUserButton.IsEnabled = false;
-
         }
         private void OnNameInput(object sender, TextChangedEventArgs e)
         {
-            if (nameInputTextBox.Text == "" || emailInputTextBox.Text == "")
+            if (updateUser)
+            {
+                addUserButton.IsEnabled = false;
+            }
+            else if (nameInputTextBox.Text == "" || emailInputTextBox.Text == "")
             {
                 addUserButton.IsEnabled = false;
             }
@@ -55,39 +58,11 @@ namespace Lab5
         }
         private void OnAddUserButtonClick(object sender, RoutedEventArgs e)
         {
-            SelectedUser = (User)userListBox.SelectedItem;
-            SelectedAdmin = (User)adminListBox.SelectedItem;
-           
-            if(updateUser)
-            {
-                changeUserButton.IsEnabled = false;
-                
-                if (SelectedUser != null)
-                {
-                    SelectedUser.Name = nameInputTextBox.Text;
-                    SelectedUser.Email = emailInputTextBox.Text;
-                    userListBox.SelectedItem = null;
-                    userListBox.Items.Refresh();
-
-                }
-                else
-                {
-                    SelectedAdmin.Name = nameInputTextBox.Text;
-                    SelectedAdmin.Email = emailInputTextBox.Text;
-                    adminListBox.SelectedItem = null;
-                    adminListBox.Items.Refresh();
-                }
-                nameInputTextBox.Text = "";
-                emailInputTextBox.Text = "";
-            }
-            else
-            {
-                users.Add(new User(nameInputTextBox.Text, emailInputTextBox.Text));
-                nameInputTextBox.Text = "";
-                emailInputTextBox.Text = "";
-            }
+            users.Add(new User(nameInputTextBox.Text, emailInputTextBox.Text));
+            nameInputTextBox.Text = "";
+            emailInputTextBox.Text = "";
+            updateUser = false;
         }
-
         
         private void OnUserListBoxSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -97,6 +72,8 @@ namespace Lab5
             {
                 UserNameInfoLabel.Content = "";
                 UserEmailInfoLabel.Content = "";
+                nameInputTextBox.Text = "";
+                emailInputTextBox.Text = "";
                 removeUserButton.IsEnabled = false;
                 makeAdminButton.IsEnabled = false;
                 changeUserButton.IsEnabled = false;
@@ -105,9 +82,13 @@ namespace Lab5
             {
                 UserNameInfoLabel.Content = SelectedUser.Name;
                 UserEmailInfoLabel.Content = SelectedUser.Email;
+                nameInputTextBox.Text = SelectedUser.Name;
+                emailInputTextBox.Text = SelectedUser.Email;
                 removeUserButton.IsEnabled = true;
                 makeAdminButton.IsEnabled = true;
                 changeUserButton.IsEnabled = true;
+                addUserButton.IsEnabled = false;
+                updateUser = true;
             }
         }
 
@@ -117,11 +98,16 @@ namespace Lab5
             admin.Remove(SelectedAdmin);
             changeUserButton.IsEnabled = false;
             removeUserButton.IsEnabled = false;
+            updateUser = false;
         }
 
         private void OnEmailInput(object sender, TextChangedEventArgs e)
         {
-            if (nameInputTextBox.Text == "" || emailInputTextBox.Text == "")
+            if (updateUser)
+            {
+                addUserButton.IsEnabled = false;
+            }
+            else if (nameInputTextBox.Text == "" || emailInputTextBox.Text == "")
             {
                 addUserButton.IsEnabled = false;
             }
@@ -145,39 +131,49 @@ namespace Lab5
             admin.Remove(SelectedAdmin);
         }
 
-        private void OnAdminLitsBoxSelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void OnAdminListBoxSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             SelectedAdmin = (User)adminListBox.SelectedItem;
             if(SelectedAdmin == null)
             {
                 UserNameInfoLabel.Content = "";
                 UserEmailInfoLabel.Content = "";
+                nameInputTextBox.Text = "";
+                emailInputTextBox.Text = "";
                 removeAdminButton.IsEnabled = false;
             }
             else
             {
                 UserNameInfoLabel.Content = SelectedAdmin.Name;
                 UserEmailInfoLabel.Content = SelectedAdmin.Email;
+                nameInputTextBox.Text = SelectedAdmin.Name;
+                emailInputTextBox.Text = SelectedAdmin.Email; 
                 removeAdminButton.IsEnabled = true;
                 removeUserButton.IsEnabled = true;
                 changeUserButton.IsEnabled = true;
+                addUserButton.IsEnabled = false;
+                updateUser = true;
             }
         }
 
         private void OnChangeUserButtonClick(object sender, RoutedEventArgs e)
         {
-            if (SelectedUser == null)
+            if (SelectedUser != null)
             {
-                nameInputTextBox.Text = SelectedAdmin.Name;
-                emailInputTextBox.Text = SelectedAdmin.Email;
+                SelectedUser.Name = nameInputTextBox.Text;
+                SelectedUser.Email = emailInputTextBox.Text;
+                userListBox.SelectedItem = null;
+                userListBox.Items.Refresh();
             }
             else
             {
-                nameInputTextBox.Text = SelectedUser.Name;
-                emailInputTextBox.Text = SelectedUser.Email;
+                SelectedAdmin.Name = nameInputTextBox.Text;
+                SelectedAdmin.Email = emailInputTextBox.Text;
+                adminListBox.SelectedItem = null;
+                adminListBox.Items.Refresh();
             }
-            updateUser = true;
-            addUserButton.Content = "Save";
+            nameInputTextBox.Text = "";
+            emailInputTextBox.Text = "";
             makeAdminButton.IsEnabled = false;
             removeUserButton.IsEnabled = false;     
         }
